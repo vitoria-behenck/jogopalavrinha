@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f6f7fb"><meta name="description" content="Descubra a palavra do dia em até seis tentativas.">
+  <title>Palavrinha — Palavra do Dia</title><link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar"><a class="brand" href="#inicio" aria-label="Palavrinha — início"><span class="brand-mark">P!</span><span>palavrinha</span></a><nav aria-label="Navegação principal"><button class="icon-button" id="rulesBtn" aria-label="Como jogar">?</button><button class="icon-button" id="statsBtn" aria-label="Ver estatísticas">▥</button></nav></header>
+    <main id="main">
+      <section id="homeScreen" class="screen home-screen" aria-labelledby="homeTitle">
+        <div class="hero-orbit" aria-hidden="true"><span>F</span><span>O</span><span>G</span><span>O</span><span>!</span></div>
+        <p class="eyebrow">UM NOVO DESAFIO TODO DIA</p><h1 id="homeTitle">Sua próxima<br><span>palavra favorita.</span></h1>
+        <p class="intro">Descubra a palavra secreta em até seis tentativas. Uma dica por dia, um pouquinho de diversão.</p>
+        <div class="daily-card"><div class="daily-icon" aria-hidden="true">✦</div><div><span class="card-label">TEMA DE HOJE</span><strong id="homeCategory">Animais</strong><span class="muted" id="homeLetters">5 letras · 6 tentativas</span></div><span class="daily-arrow" aria-hidden="true">↗</span></div>
+        <button class="primary-button" id="startBtn">Jogar palavra do dia <span aria-hidden="true">→</span></button>
+        <button class="text-button" id="howBtn">Como funciona?</button>
+        <div class="home-stats"><div><strong id="homeStreak">0</strong><span>dias seguidos</span></div><div><strong id="homeWins">0%</strong><span>de acertos</span></div><div><strong id="homeGames">0</strong><span>partidas</span></div></div>
+      </section>
+      <section id="gameScreen" class="screen game-screen" hidden aria-labelledby="gameTitle">
+        <div class="game-heading"><button class="back-button" id="backBtn" aria-label="Voltar ao início">←</button><div><p class="eyebrow">DESAFIO DE HOJE</p><h1 id="gameTitle">Descubra a palavra</h1></div><span class="category-pill" id="gameCategory">Animais</span></div>
+        <p class="game-hint" id="gameHint">Uma palavra, cinco letras. Você consegue!</p>
+        <div id="board" class="board" role="group" aria-label="Tabuleiro com seis tentativas"></div>
+        <p id="statusMessage" class="status-message" role="status" aria-live="polite">Digite uma palavra de 5 letras.</p>
+        <div id="keyboard" class="keyboard" aria-label="Teclado virtual"></div>
+        <div class="game-footer"><span>✦ <span id="attemptsLeft">6</span> tentativas disponíveis</span><button class="text-button" id="giveUpBtn">Encerrar partida</button></div>
+      </section>
+      <section id="resultScreen" class="screen result-screen" hidden aria-labelledby="resultTitle">
+        <div class="result-symbol" id="resultSymbol" aria-hidden="true">✦</div><p class="eyebrow">DESAFIO CONCLUÍDO</p><h1 id="resultTitle">Muito bem!</h1><p id="resultCopy" class="intro">Você descobriu a palavra.</p>
+        <div class="answer-card"><span>A PALAVRA ERA</span><strong id="answerWord">TIGRE</strong><span id="answerCategory">Animais</span></div>
+        <div class="result-stats"><div><strong id="resultAttempts">3/6</strong><span>tentativas</span></div><div><strong id="resultStreak">1 🔥</strong><span>dias seguidos</span></div><div><strong id="resultWinRate">100%</strong><span>de acertos</span></div></div>
+        <button class="primary-button" id="shareBtn">Compartilhar resultado <span aria-hidden="true">↗</span></button><p id="shareStatus" class="share-status" role="status" aria-live="polite"></p><button class="secondary-button" id="resultHomeBtn">Voltar ao início</button><p class="tomorrow-note">O próximo desafio chega amanhã. 🌱</p>
+      </section>
+    </main>
+    <footer class="site-footer"><span>feito para exercitar a curiosidade ✿</span><span id="dateLabel"></span></footer>
+  </div>
+  <dialog id="rulesDialog" class="modal"><form method="dialog"><button class="modal-close" aria-label="Fechar">×</button></form><p class="eyebrow">É SIMPLES ASSIM</p><h2>Como jogar</h2><p>Descubra a palavra de cinco letras em até seis tentativas. Depois de cada palpite, as letras dão pistas:</p><div class="rule-row"><span class="rule-tile correct">A</span><span><strong>Na posição certa</strong><small>A letra está no lugar correto.</small></span></div><div class="rule-row"><span class="rule-tile present">R</span><span><strong>Está na palavra</strong><small>Mas aparece em outra posição.</small></span></div><div class="rule-row"><span class="rule-tile absent">M</span><span><strong>Não aparece</strong><small>Essa letra não faz parte da palavra.</small></span></div><p class="modal-note">A cor é acompanhada por letras e rótulos para que as pistas não dependam apenas da visão das cores.</p><form method="dialog"><button class="primary-button">Entendi!</button></form></dialog>
+  <dialog id="statsDialog" class="modal"><form method="dialog"><button class="modal-close" aria-label="Fechar">×</button></form><p class="eyebrow">SEU PROGRESSO</p><h2>Estatísticas</h2><div class="stats-grid"><div><strong id="statGames">0</strong><span>partidas</span></div><div><strong id="statWins">0</strong><span>vitórias</span></div><div><strong id="statStreak">0</strong><span>sequência atual</span></div><div><strong id="statBest">0</strong><span>melhor sequência</span></div><div><strong id="statRate">0%</strong><span>taxa de acerto</span></div><div><strong id="statLast">—</strong><span>última palavra</span></div></div><p class="modal-note">As estatísticas ficam salvas neste navegador e não são sincronizadas entre dispositivos.</p><form method="dialog"><button class="secondary-button">Fechar</button></form></dialog>
+  <script src="app.js"></script>
+</body></html>
