@@ -24,11 +24,13 @@ MVP de jogo diário de adivinhação de palavras em português, feito com HTML, 
 - `docs/projeto-tecnico.md`: arquitetura e plano de testes.
 - `docs/pesquisa-e-design.md`: pesquisa e referências.
 - `docs/revisao-de-agentes.md`: revisão por perspectivas especializadas.
+- `TESTES.md`: bateria automatizada e comandos de verificação.
 
 ## Limitações conhecidas
 O MVP não usa servidor. A palavra é determinada pela data local e pela lista incorporada ao site; portanto, o relógio pode ser alterado e respostas futuras podem ser encontradas no código público. Estatísticas e progresso não sincronizam entre dispositivos e podem ser apagados ao limpar os dados do navegador. A lista de palpites atual é inicial e precisa de revisão linguística antes de publicação.
 
 ## Verificação
 - `node --check app.js`: verificação sintática JavaScript.
+- `node --test test/app.test.js`: bateria curta das regras e do fluxo principal.
 - Revisão estática documentada em `docs/revisao-de-agentes.md`.
 - A captura automatizada em Chromium headless não foi concluída no ambiente de desenvolvimento; teste visual automatizado completo ainda é pendência.
